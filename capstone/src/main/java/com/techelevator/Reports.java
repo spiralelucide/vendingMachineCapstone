@@ -42,7 +42,7 @@ public class Reports {
 			salesReportWriter.println(formatted);
 		}
 		salesReportWriter.flush();
-                ProcessBuilder pb = new ProcessBuilder("R CMD BATCH","/Users/bryant/workspaces/vendingMachineCapstone/capstone");
+                ProcessBuilder pb = new ProcessBuilder("Rscript","/Users/bryant/workspaces/vendingMachineCapstone/capstone");
                 try{
                 Process p = pb.start();
                 }catch(Exception e){
