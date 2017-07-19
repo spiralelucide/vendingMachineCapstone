@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Reports {
 	private File logFile = new File("Log.txt");
@@ -42,9 +44,15 @@ public class Reports {
 			salesReportWriter.println(formatted);
 		}
 		salesReportWriter.flush();
-                ProcessBuilder pb = new ProcessBuilder("Rscript","/Users/bryant/workspaces/vendingMachineCapstone/capstone");
+                List<String> commandList = new ArrayList();
+                commandList.add("/usr/local/bin/Rscript");
+                commandList.add("Rscript /Users/bryant/workspaces/vendingMachineCapstone/capstone/report_graph.R");
+                ProcessBuilder pb = new ProcessBuilder(commandList);
+                 //"/usr/local/bin","Rscript /Users/bryant/workspaces/vendingMachineCapstone/capstone/report_graph.R");
                 try{
                 Process p = pb.start();
+                p.waitFor();
+                System.out.println("success");
                 }catch(Exception e){
                     e.printStackTrace();
                 }
