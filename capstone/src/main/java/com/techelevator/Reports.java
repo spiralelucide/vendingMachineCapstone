@@ -44,10 +44,10 @@ public class Reports {
 			salesReportWriter.println(formatted);
 		}
 		salesReportWriter.flush();
-//                List<String> commandList = new ArrayList();
-//                commandList.add("/usr/local/bin/Rscript");
-//                commandList.add("Rscript /Users/bryant/workspaces/vendingMachineCapstone/capstone/report_graph.R");
-                ProcessBuilder pb = new ProcessBuilder("Rscript /Users/bryant/workspaces/vendingMachineCapstone/capstone/report_graph.R");
+                List<String> commandList = new ArrayList();
+                commandList.add("/usr/local/bin/Rscript");
+                commandList.add("/Users/bryant/workspaces/vendingMachineCapstone/capstone/report_graph.R");
+                ProcessBuilder pb = new ProcessBuilder(commandList);
                 try{
                 Process p = pb.start();
                 p.waitFor();
